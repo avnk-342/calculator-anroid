@@ -31,13 +31,14 @@ class MainActivity : AppCompatActivity() {
     lateinit var back: Button
 
     private var canAddOperator = false
-    private var canAddDot = false
+    private var canAddDot = true
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
+        supportActionBar?.hide()
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -61,6 +62,8 @@ class MainActivity : AppCompatActivity() {
         btn7 = findViewById(R.id.btn7)
         btn8 = findViewById(R.id.btn8)
         btn9 = findViewById(R.id.btn9)
+        clear = findViewById(R.id.all_clear)
+        back = findViewById(R.id.backspace)
 
 
 //        Listners for each numerical button
@@ -168,11 +171,6 @@ class MainActivity : AppCompatActivity() {
             return stack_num.last()
         }
 
-//        Listners for each operator button
-
-//        var num1: Int? = null
-//        var num2: Int? = null
-//        var operator: String? = null
         try {
 
 
@@ -217,6 +215,7 @@ class MainActivity : AppCompatActivity() {
             if(str.length>0){
                 if(str.last() == '/' || str.last() == '*' || str.last() == '-' || str.last() == '+'){
                     canAddOperator = true
+                    canAddDot = false
                 }
                 text.text = str.substring(0, str.length - 1)
 
