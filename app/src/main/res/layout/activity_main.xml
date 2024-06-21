@@ -40,6 +40,24 @@
             style="@style/button_row">
 
             <Button
+                android:id="@+id/all_clear"
+                style="@style/button_number"
+                android:text="AC"/>
+
+
+            <Button
+                android:id="@+id/backspace"
+                style="@style/button_number"
+                android:text="<-" />
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            style="@style/button_row">
+
+            <Button
                 android:id="@+id/btn8"
                 style="@style/button_number"
                 android:text="8"/>
@@ -129,9 +147,13 @@
                 style="@style/button_number"
                 android:text="." />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_equal"
-                style="@style/button_operator"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:textSize="25sp"
+                android:layout_weight="1"
+                android:background="@drawable/button_style"
                 android:text="=" />
 
         </LinearLayout>

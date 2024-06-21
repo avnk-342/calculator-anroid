@@ -27,6 +27,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var btn8: Button
     lateinit var btn9: Button
     lateinit var dot: Button
+    lateinit var clear: Button
+    lateinit var back: Button
 
     private var canAddOperator = false
     private var canAddDot = false
@@ -207,6 +209,23 @@ class MainActivity : AppCompatActivity() {
             }
         }catch (e:Exception){
 
+        }
+
+        // adding back button function
+        back.setOnClickListener(){
+            val str : String = text.text.toString()
+            if(str.length>0){
+                if(str.last() == '/' || str.last() == '*' || str.last() == '-' || str.last() == '+'){
+                    canAddOperator = true
+                }
+                text.text = str.substring(0, str.length - 1)
+
+            }
+        }
+
+        // Adding all clear button function
+        clear.setOnClickListener(){
+            text.text = ""
         }
 
         // Equal button
